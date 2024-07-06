@@ -17,7 +17,7 @@ def generate_prediction():
     print("classification model running")
 
     pred = classification_model.predict(data)
-    print("predictions are ready")
+
     print(pred)
     return pred
 
