@@ -14,10 +14,7 @@ classification_model = pl.load_pipeline(config.MODEL_NAME)
 
 def generate_prediction():
     data = dh.load_dataset(config.TEST_FILE)
-    print("classification model running")
-
     pred = classification_model.predict(data)
-
     print(pred)
     return pred
 
