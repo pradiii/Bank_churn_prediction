@@ -28,3 +28,8 @@ TARGET_FEATURE  = ['Exited']
 DROP_FEATURES = ['id', 'CustomerId', 'Surname']
 
 TRAIN_DATA_SIZE = 0.7
+
+MODEL_PARAMS = {
+    'C': [0.1, 1.0, 10.0],
+    'solver': ['lbfgs', 'liblinear']
+}
