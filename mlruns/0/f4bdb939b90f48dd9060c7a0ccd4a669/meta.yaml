@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/ADMIN/OneDrive/Desktop/ML_Projects/Projects/Bank_churn_detection/mlruns/0/f4bdb939b90f48dd9060c7a0ccd4a669/artifacts
+end_time: 1720536663777
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f4bdb939b90f48dd9060c7a0ccd4a669
+run_name: mercurial-snail-842
+run_uuid: f4bdb939b90f48dd9060c7a0ccd4a669
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1720536655728
+status: 4
+tags: []
+user_id: Pradi

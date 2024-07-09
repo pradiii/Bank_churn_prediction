@@ -1,0 +1,3 @@
+[('dropColumn', dropColumn(variables=['id', 'CustomerId', 'Surname'])), ('onehotEncoder', onehotEncoder(variables=['Geography'])), ('lableEncoder', lableEncoder(variables=['Gender'])), ('minMaxScaler', minmaxScaler(variables=['CreditScore', 'Age', 'Tenure', 'Balance',
+                        'NumOfProducts', 'HasCrCard', 'IsActiveMember',
+                        'EstimatedSalary'])), ('logistic_regression_model', LogisticRegression(max_iter=1000, multi_class='deprecated', solver='saga'))]

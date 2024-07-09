@@ -9,6 +9,14 @@ class Trainer:
     def __init__(self,config):
         self.config = config
 
+    # def load_data(self):
+    #     raw_data = dataHandling.load_dataset(self,config.TRAIN_FILE)
+    #     train_X = raw_data.drop(config.TARGET_FEATURE,axis=1)
+    #     train_y = raw_data[config.TARGET_FEATURE].values.ravel()
+
+    #     return train_X,train_y
+
+
     def train_model(self):
         raw_data = dataHandling.load_dataset(self,config.TRAIN_FILE)
         train_X = raw_data.drop(config.TARGET_FEATURE,axis=1)
