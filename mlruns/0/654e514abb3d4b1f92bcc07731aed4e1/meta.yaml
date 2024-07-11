@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/ADMIN/OneDrive/Desktop/ML_Projects/Projects/Bank_churn_detection/mlruns/0/654e514abb3d4b1f92bcc07731aed4e1/artifacts
+end_time: 1720695385710
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 654e514abb3d4b1f92bcc07731aed4e1
+run_name: amazing-stag-65
+run_uuid: 654e514abb3d4b1f92bcc07731aed4e1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1720695378975
+status: 3
+tags: []
+user_id: Pradi

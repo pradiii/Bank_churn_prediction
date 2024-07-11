@@ -1,0 +1,3 @@
+minmaxScaler(variables=['CreditScore', 'Age', 'Tenure', 'Balance',
+                        'NumOfProducts', 'HasCrCard', 'IsActiveMember',
+                        'EstimatedSalary'])

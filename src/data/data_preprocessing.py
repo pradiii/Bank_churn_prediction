@@ -1,12 +1,13 @@
 from sklearn.base import BaseEstimator,TransformerMixin
 import numpy as np
+from config import config
 
 class onehotEncoder(BaseEstimator,TransformerMixin):
     def __init__(self,variables=None):
         self.variables = variables
-
-    def fit(self,X,y):
         self._categories = {}
+
+    def fit(self,X,y=None):
         for var in self.variables:
             self._categories[var] = np.unique(X[var])
 
@@ -26,16 +27,22 @@ class onehotEncoder(BaseEstimator,TransformerMixin):
 class lableEncoder(BaseEstimator,TransformerMixin):
     def __init__(self,variables=None):
         self.variables = variables
+        self.label_dict = {}
 
     def fit(self,X,y=None):
         self.label_dict = {}
+        
         for var in self.variables:
             t = X[var].value_counts().sort_values(ascending=True).index
             self.label_dict[var] = {k:i for i,k in enumerate(t,0)}
+
+        print("label dict in fit",self.label_dict)
         return self
 
     def transform(self,X):
         X = X.copy()
+        print('label_dict in transform ',self.label_dict)
+        print("label encode feature:",config.LABEL_ECNCODE_FEATURE)
         for feature in self.variables:
             X[feature] = X[feature].map(self.label_dict[feature])
         return X
@@ -77,14 +84,3 @@ class dropColumn(BaseEstimator,TransformerMixin):
         X = X.drop(columns = self.variables)
 
         return X 
-    
-
-
-
-    
-
-
-
-
-
-
