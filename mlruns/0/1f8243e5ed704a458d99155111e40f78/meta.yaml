@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/ADMIN/OneDrive/Desktop/ML_Projects/Projects/Bank_churn_detection/mlruns/0/1f8243e5ed704a458d99155111e40f78/artifacts
+end_time: 1720695535956
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 1f8243e5ed704a458d99155111e40f78
+run_name: powerful-bug-915
+run_uuid: 1f8243e5ed704a458d99155111e40f78
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1720695530674
+status: 3
+tags: []
+user_id: Pradi

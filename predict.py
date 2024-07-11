@@ -25,7 +25,7 @@ def generate_prediction():
         # mlflow.log_param("test_file",config.TEST_FILE)
         # mlflow.log_artifact(config.TEST_FILE)
         mlflow.log_dict({"predictions":pred.tolist()},"predictions.json")
-
+    print("predictions are ",pred)
     return pred
 
 if __name__== "__main__":

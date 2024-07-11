@@ -1,0 +1,2 @@
+,id,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary
+0,1,1234,Dos,899,France,Male,22,10,999.96,1,1,1,100000000.0
