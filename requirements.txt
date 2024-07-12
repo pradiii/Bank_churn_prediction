@@ -3,5 +3,4 @@ numpy
 seaborn
 mlflow
 streamlit
-scikit-learn
-joblib
+sklearn
