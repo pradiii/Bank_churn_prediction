@@ -4,3 +4,4 @@ seaborn
 mlflow
 streamlit
 scikit-learn
+joblib
