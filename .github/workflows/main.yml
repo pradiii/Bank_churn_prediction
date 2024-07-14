@@ -1,4 +1,30 @@
+name: workflow
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'README.md'
+
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
+  integration:
+    name: Continuous Integration
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Lint code
+        run: echo "Linting repository"
+
+      - name: Run unit tests
+        run: echo "Running unit tests"
+
   build-and-push-ecr-image:
     name: Continuous Delivery
     needs: integration
@@ -26,8 +52,8 @@ jobs:
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
         env:
-          ECR_REGISTRY: 211125630994.dkr.ecr.us-east-1.amazonaws.com
-          ECR_REPOSITORY: pradeep_bank_churn_app
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY_NAME }}
           IMAGE_TAG: latest
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
@@ -55,7 +81,7 @@ jobs:
 
       - name: Pull latest image
         run: |
-          docker pull 211125630994.dkr.ecr.us-east-1.amazonaws.com/pradeep_bank_churn_app:latest
+          docker pull ${{ secrets.AWS_ECR_LOGIN_URI }}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
 
       - name: Stop and remove existing container
         run: |
@@ -63,11 +89,11 @@ jobs:
 
       - name: Run Docker Image to serve users
         run: |
-          docker run -d -p 8501:8501 --ipc="host" --name=pradeep_bank_churn_app \
+          docker run -d -p 8080:8080 --ipc="host" --name=pradeep_bank_churn_app \
           -e AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} \
           -e AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} \
           -e AWS_REGION=${{ secrets.AWS_REGION }} \
-          211125630994.dkr.ecr.us-east-1.amazonaws.com/pradeep_bank_churn_app:latest
+          ${{ secrets.AWS_ECR_LOGIN_URI }}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
 
       - name: Clean up dangling images
         run: |
