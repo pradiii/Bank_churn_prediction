@@ -9,7 +9,6 @@ import streamlit as st
 import logging
 
 logging.basicConfig(level=logging.INFO)
-
 pl  = pipelineHandling()
 model = pl.load_pipeline(config.MODEL_NAME)
 
