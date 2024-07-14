@@ -6,7 +6,6 @@ from config import config
 from src.data.data_handling import pipelineHandling
 import sys
 import streamlit as st
-
 import logging
 
 logging.basicConfig(level=logging.INFO)
